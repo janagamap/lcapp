@@ -8,7 +8,7 @@ import {
   } from 'react-native';
 
 import {Dashboard} from './Dashboard';
-import {TimeLineExample} from './TimeLineExample';
+import {TimeLine} from './TimeLineExample';
 
 export class Login extends Component {
 
@@ -49,8 +49,8 @@ export class Login extends Component {
             }
            }) */
            this.props.navigator.push({
-                    title: 'TimeLineExample',
-                    component: TimeLineExample,
+                    title: 'Getting Ready CheckList',
+                    component: TimeLine,
                     //passProps: {userInfo: res}
                 });
 
@@ -63,6 +63,7 @@ export class Login extends Component {
 	render(){
         console.log("In Login view");
 		return (
+
 			<View style={styles.mainContainer}>
 			<Text style={styles.title}> Login Page</Text>
              <TouchableHighlight
@@ -80,7 +81,6 @@ const styles = StyleSheet.create({
     mainContainer: {
         flex: 1,
         padding: 30,
-        marginTop: 65,
         flexDirection: 'column',
         justifyContent: 'center',
         backgroundColor: '#3a4e4f'
