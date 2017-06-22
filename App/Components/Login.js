@@ -83,7 +83,7 @@ const styles = StyleSheet.create({
         marginTop: 65,
         flexDirection: 'column',
         justifyContent: 'center',
-        backgroundColor: 'blue'
+        backgroundColor: '#3a4e4f'
     },
     title: {
         marginBottom: 20,

@@ -14,6 +14,16 @@ export class TimeLineExample extends Component {
       {time: 'Step 4', title: 'Event 2', description: 'Event 2 Description'},
       {time: 'Step 3', title: 'Event 3', description: 'Event 3 Description'},
       {time: 'Step 2', title: 'Event 4', description: 'Event 4 Description'},
+      {time: 'Step 1', title: 'Event 5', description: 'Event 5 Description'},
+      {time: 'Step 5', title: 'Event 1', description: 'Event 1 Description'},
+      {time: 'Step 4', title: 'Event 2', description: 'Event 2 Description'},
+      {time: 'Step 3', title: 'Event 3', description: 'Event 3 Description'},
+      {time: 'Step 2', title: 'Event 4', description: 'Event 4 Description'},
+      {time: 'Step 1', title: 'Event 5', description: 'Event 5 Description'},
+      {time: 'Step 5', title: 'Event 1', description: 'Event 1 Description'},
+      {time: 'Step 4', title: 'Event 2', description: 'Event 2 Description'},
+      {time: 'Step 3', title: 'Event 3', description: 'Event 3 Description'},
+      {time: 'Step 2', title: 'Event 4', description: 'Event 4 Description'},
       {time: 'Step 1', title: 'Event 5', description: 'Event 5 Description'}
     ]
   } 

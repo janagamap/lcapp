@@ -12,18 +12,23 @@ import {
   View,
   NavigatorIOS
 } from 'react-native';
+
+//import {Main} from './App/Components/Main';
 import {Login} from './App/Components/Login';
 
 export default class lcapp extends Component {
   render() {
     return (
-      <NavigatorIOS
+     <NavigatorIOS
       style={styles.container}
         initialRoute={{
           title: 'Login',
           component: Login
         }} 
         />
+        
+        
+
     );
   }
 }
@@ -31,7 +36,7 @@ export default class lcapp extends Component {
 const styles = StyleSheet.create({
  container:{
     flex: 1,
-    backgroundColor: '#111111'
+    backgroundColor: '#3a4e4f'
   },
 });
 
