@@ -10,6 +10,8 @@ import {
 import {Dashboard} from './Dashboard';
 import {TimeLine} from './TimeLineExample';
 
+import { Button } from 'react-native-elements';
+
 export class Login extends Component {
 
     constructor(props) {
@@ -65,6 +67,15 @@ export class Login extends Component {
 		return (
 
 			<View style={styles.mainContainer}>
+            
+<Button
+  raised
+  icon={{name: 'home', size: 32}}
+  buttonStyle={{backgroundColor: 'red', borderRadius: 10}}
+  textStyle={{textAlign: 'center'}}
+  title={`Welcome to\nReact Native Elements`}
+/>
+
 			<Text style={styles.title}> Login Page</Text>
              <TouchableHighlight
                 style={styles.button}

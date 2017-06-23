@@ -10,6 +10,8 @@ import Timeline from 'react-native-timeline-listview'
 import {Divider, Grid, Col, Row} from 'react-native-elements';
 import {Web} from './Helpers/WebView';
 
+import {AgendaView} from './Agenda';
+
 export class TimeLine extends Component {
   username = "Huey Donaldson"
   constructor(){
@@ -91,7 +93,7 @@ export class TimeLine extends Component {
         console.log('the url is', url);
         this.props.navigator.push({
           component: Web,
-          title: 'Web View',
+          title: 'Help',
           passProps: {url}
         });
     }
@@ -128,6 +130,8 @@ export class TimeLine extends Component {
     //'rgb(45,156,219)'
     return (
      <View style={styles.container}>
+    <AgendaView />
+
       <ScrollView>
         <View style={styles.topcontainer} />
         <Divider style={{ backgroundColor: 'blue', width: '100%' }} />
