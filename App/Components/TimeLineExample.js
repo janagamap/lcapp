@@ -4,18 +4,55 @@ import {
   Text,
   View,
   ScrollView,
-  TouchableHighlight
+  TouchableHighlight, 
+  
+  AsyncStorage
 } from 'react-native';
 import Timeline from 'react-native-timeline-listview'
 import {Divider, Grid, Col, Row} from 'react-native-elements';
 import {Web} from './Helpers/WebView';
+//import { Button } from 'react-native-elements'
 
 import {AgendaView} from './Agenda';
+import {ProfileCard} from './common/ProfileCard';
 
 export class TimeLine extends Component {
   username = "Huey Donaldson"
-  constructor(){
-    super()
+  constructor(props){
+    super(props)
+   
+  /*
+
+    AsyncStorage.setItem('key', JSON.stringify(false))
+
+// Retrieves from storage as boolean
+AsyncStorage.getItem('key', (value) => {
+    JSON.parse(value) // boolean false
+}
+
+  */
+  /*const value = AsyncStorage.getItem('confirmEnrollment', (value) => {
+          
+            JSON.parse(value);
+             console.log(value);
+             console.log(typeof(value));
+          })
+  if(value === null){
+    confirmEnrollment = false;
+  } else {
+    console.log
+    confirmEnrollment = value;
+  }
+    this.state = {
+          "confirmEnrollment": confirmEnrollment
+
+        }
+    */
+    /*AsyncStorage.getItem("confirmEnrollment").then((value) => {
+        this.setState({"confirmEnrollment": value});
+    }).done();*/
+
+
 
     this.onEventPress = this.onEventPress.bind(this)
     this.renderSelected = this.renderSelected.bind(this)
@@ -122,18 +159,75 @@ export class TimeLine extends Component {
     )
   }
 
+  confirmYesHandler(evt){
+    console.log(evt);
+    console.log("In event handler");
+    this.setState({
+            "confirmEnrollment": true
+        });
+    AsyncStorage.setItem("confirmEnrollment", JSON.stringify(true));
+  }
+
+  confirmNoHandler(evt){
+    console.log(evt);
+    console.log("In No event handler");
+    
+    this.setState({
+            "confirmEnrollment": false
+        });
+
+    AsyncStorage.setItem("confirmEnrollment", JSON.stringify(false));
+  }
 
 
-
+  
 
   render() {
     //'rgb(45,156,219)'
+    if(!this.state.confirmEnrollment){
+      return(
+        <View style={styles.container}>
+        <ProfileCard/>
+
+        <View style={styles.confirmContainer}>
+            <Text style={styles.heading}>Confirm Enrollment</Text>
+            <View style={styles.confirmTextContainer}>
+              <Text style={styles.confirmText}>Did you sign this student up for these courses:</Text>
+              <Text style={styles.confirmText}>Algebra 1, English 9 & Earth Science?</Text>
+          </View>
+          <View style={styles.buttonContainer}>
+              <TouchableHighlight
+                style={styles.button}
+                onPress={this.confirmYesHandler.bind(this)}
+                underlayColor="white">
+                <Text style={styles.buttonText}>Yes</Text>
+            </TouchableHighlight>
+              <TouchableHighlight
+                style={styles.nobutton}
+                onPress={this.confirmNoHandler.bind(this)}
+                underlayColor="white">
+                <Text style={styles.buttonText}>No</Text>
+            </TouchableHighlight>
+
+            {/* 
+             <Button title='Yes' color="#841584"
+              onPress={this.confirmYesHandler.bind(this)}
+              style={styles.yesButton}
+             />
+             <Button title='No' color="#841584"
+               onPress={this.confirmNoHandler.bind(this)}
+            />
+            */}
+          </View>
+        </View>
+
+        </View>
+        )
+    }
+    else {
     return (
      <View style={styles.container}>
-    <AgendaView />
-
-      <ScrollView>
-        <View style={styles.topcontainer} />
+      <ProfileCard/>
         <Divider style={{ backgroundColor: 'blue', width: '100%' }} />
         <Timeline 
           style={styles.list}
@@ -150,21 +244,19 @@ export class TimeLine extends Component {
           renderDetail={this.renderDetail}
          
         />
-        </ScrollView>
-
-        
         
       </View> 
 
     );
+    }
   }
 }
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    padding: 20,
-  paddingTop:65,
+    
+  paddingTop:5,
     backgroundColor:'white'
   },
   list: {
@@ -204,5 +296,64 @@ const styles = StyleSheet.create({
     paddingRight: 5,
     backgroundColor: "#BBDAFF",
     borderRadius: 10
-  }
+  },
+  confirmContainer: {
+    alignItems: 'center',
+    marginTop: 30,
+  },
+  confirmTextContainer: {
+    marginTop: 10,
+
+  },
+  heading: {
+    fontSize: 16,
+    fontWeight: 'bold',
+    //color: '#979797'
+  },
+  buttonContainer: {
+    flex: 1,
+    flexDirection: 'row',
+    marginTop: 5
+  },
+  confirmText:{
+    fontSize: 14,
+    color: '#565A5C'
+  },
+  yesButton: {
+    backgroundColor: '#99AAFF',
+    borderRadius: 5,
+    borderWidth: 1,
+    borderColor: '#000033'
+  },
+   buttonText: {
+        fontSize: 14,
+        color: '#D8D8D8',
+        alignSelf: 'center'
+    },
+    button: {
+        height: 30,
+        width: 90,
+        flexDirection: 'row',
+        backgroundColor: '#006FBF',
+        borderColor: 'white',
+        borderWidth: 1,
+        borderRadius: 8,
+        marginBottom: 5,
+        marginTop: 5,
+        marginLeft: 5,
+        justifyContent: 'center'
+    },
+    nobutton: {
+        height: 30,
+        width: 90,
+        flexDirection: 'row',
+        backgroundColor: '#BDBDBD',
+        borderColor: 'white',
+        borderWidth: 1,
+        borderRadius: 8,
+        marginBottom: 5,
+        marginTop: 5,
+        marginLeft: 5,
+        justifyContent: 'center'
+    }
 });
