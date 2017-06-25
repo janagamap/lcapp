@@ -9,7 +9,7 @@ import {
 
 import {Dashboard} from './Dashboard';
 import {TimeLine} from './TimeLineExample';
-
+import {Home} from './Home';
 import { Button } from 'react-native-elements';
 
 export class Login extends Component {
@@ -28,38 +28,19 @@ export class Login extends Component {
        this.setState({
             isLoading: true
         });
-       // console.log('SUBMIT', this.state.username);
-       /* api.getBio(this.state.username)
-           .then((res) => {
-            console.log("res:", res);
-            if(res.message === 'Not Found'){
-                this.setState({
-                    error: 'User not found',
-                    isLoading: false
-                })
-            } else {
-                this.props.navigator.push({
-                    title: res.name || 'Select an Option',
-                    component: Dashboard,
-                    passProps: {userInfo: res}
-                });
-                this.setState({
-                    isLoading: false, 
-                    error: false, 
-                    username: ''
-                })
-            }
-           }) */
+       
            this.props.navigator.push({
-                    title: 'Getting Ready CheckList',
-                    component: TimeLine,
+                    title: '',
+                    navigationBarHidden: true,
+                    translucent: true,
+                    component: Home,
+                    //leftButtonTitle: ' '
                     //passProps: {userInfo: res}
                 });
 
        
         console.log('Login submitted');
-        //fetch data from github
-        //reroute to the next passing that github information
+        
     }
 
 	render(){

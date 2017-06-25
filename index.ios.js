@@ -27,17 +27,18 @@ export default class lcapp extends Component {
         flexDirection: 'row',
         justifyContent: 'space-between',
         alignItems: 'center',
+        marginBottom: 8
       }}>
          <Image
-          style={{width: 20, height: 20}}
+          style={{width: 24, height: 24, marginLeft: 10}}
           source={require('./images/K12_logo_colored.png')}
         />
-        <View sytle={styles.imagecontainer}>
+        <View style={styles.imagecontainer}>
         <Image
           style={{width: 20, height: 20}}
           source={require('./images/profile_avatar_icon.png')}
         />
-         <Text>Donald</Text>
+         <Text style={{marginRight: 10}}>Donald</Text>
          </View>
 
         </View>
@@ -63,16 +64,16 @@ const styles = StyleSheet.create({
  logocontainer:{
     flex: 1,
     marginTop: 25,
-   backgroundColor: 'white'
+    marginBottom: 10,
+   backgroundColor: 'white',
+   justifyContent: 'space-between',
   },
- container:{
-    flex: 1,
-   backgroundColor: 'white'
-  },
+ 
   imagecontainer: {
         flexDirection: 'row',
-        justifyContent: 'space-between',
-        alignItems: 'center',
+        width: 120,
+        marginLeft: 40,
+
   }
 });
 
