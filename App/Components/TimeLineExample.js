@@ -228,7 +228,7 @@ AsyncStorage.getItem('key', (value) => {
     return (
      <View style={styles.container}>
       <ProfileCard/>
-        <Divider style={{ backgroundColor: 'blue', width: '100%' }} />
+        
         <Timeline 
           style={styles.list}
           data={this.data}
